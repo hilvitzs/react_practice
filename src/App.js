@@ -24,19 +24,19 @@ class App extends Component {
 
   removeRow(id) {
     let oldState = this.state.cards;
-    let specificObject = this.state.cards.find(card => id === card.id)
-    let key = this.state.cards.indexOf(specificObject);
-    let newState = update(oldState, { $splice: [[key, 1]] });
+    let card = this.state.cards.find(card => id === card.id)
+    let cardId = this.state.cards.indexOf(card);
+    let newState = update(oldState, { $splice: [[cardId, 1]] });
     this.setState({
       cards: newState
     });
   }
 
-  updateRow(newObj) {
-    let specificObject = this.state.cards.find(card => newObj.id === card.id)
-    let cardsIndex = this.state.cards.indexOf(specificObject);
+  updateRow(updatedRow) {
+    let specificObject = this.state.cards.find(card => updatedRow.id === card.id)
+    let cardsIndex = this.state.cards.indexOf(updatedRow);
     let cardsState = this.state.cards;
-    cardsState[cardsIndex] = newObj;
+    cardsState[cardsIndex] = updatedRow;
     this.setState({
       cards: cardsState
     });
