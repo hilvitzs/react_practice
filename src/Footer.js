@@ -7,5 +7,5 @@ export const Footer = ({ addRow }) => {
       <button>Cancel</button>
       <button>Generate User</button>
     </div>
-  )
-}
+  );
+};

@@ -6,10 +6,10 @@ import { Footer } from './Footer';
 
 class App extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       cards: []
-    }
+    };
 
     this.addRow = this.addRow.bind(this);
     this.removeRow = this.removeRow.bind(this);
@@ -19,17 +19,17 @@ class App extends Component {
   addRow() {
     this.setState({
       cards: [...this.state.cards, {}]
-    })
+    });
   }
 
   removeRow(index) {
     let oldState = this.state.cards;
     let key = parseInt(index._reactInternalFiber.key, 10);
-    let newState = update(oldState, {$splice: [[key, 1]]});
+    let newState = update(oldState, { $splice: [[key, 1]] });
     console.table(newState);
     this.setState({
       cards: newState
-    })
+    });
   }
 
   updateRow(obj, instance) {
@@ -45,7 +45,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <UserRowList cardsList={this.state.cards} removeRow={this.removeRow} updateRow={this.updateRow}/>
+        <UserRowList cardsList={this.state.cards} removeRow={this.removeRow} updateRow={this.updateRow} />
         <Footer addRow={this.addRow} />
       </div>
     );
