@@ -18,24 +18,25 @@ class App extends Component {
 
   addRow() {
     this.setState({
-      cards: [...this.state.cards, {}]
+      cards: [...this.state.cards, { id: Date.now() }]
     });
   }
 
-  removeRow(index) {
+  removeRow(id) {
     let oldState = this.state.cards;
-    let key = parseInt(index._reactInternalFiber.key, 10);
+    let specificObject = this.state.cards.find(card => id === card.id)
+    let key = this.state.cards.indexOf(specificObject);
     let newState = update(oldState, { $splice: [[key, 1]] });
-    console.table(newState);
     this.setState({
       cards: newState
     });
   }
 
-  updateRow(obj, instance) {
-    let cardsIndex = parseInt(instance._reactInternalFiber.key, 10);
+  updateRow(newObj) {
+    let specificObject = this.state.cards.find(card => newObj.id === card.id)
+    let cardsIndex = this.state.cards.indexOf(specificObject);
     let cardsState = this.state.cards;
-    cardsState[cardsIndex] = obj;
+    cardsState[cardsIndex] = newObj;
     this.setState({
       cards: cardsState
     });

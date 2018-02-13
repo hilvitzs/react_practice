@@ -4,8 +4,9 @@ export default class UserRow extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userName: '',
-      userGroup: ''
+      userName: props.userName || '',
+      userGroup: props.userGroup || '',
+      id: props.id
     };
   }
 
@@ -18,12 +19,12 @@ export default class UserRow extends Component {
   }
 
   render() {
-    let { removeRow, updateRow } = this.props;
+    let { removeRow, updateRow, id } = this.props;
     return (
       <div>
-        <input value={this.state.userName} name="userName" placeholder="User Name" onChange={e => this.updateInputs(e)} onBlur={() => updateRow(this.state, this)} />
-        <input value={this.state.userGroup} name="userGroup" placeholder="User Group" onChange={e => this.updateInputs(e)} onBlur={() => updateRow(this.state, this)} />
-        <button onClick={() => removeRow(this)}>Remove</button>
+        <input value={this.state.userName} name="userName" placeholder="User Name" onChange={e => this.updateInputs(e)} onBlur={() => updateRow(this.state)} />
+        <input value={this.state.userGroup} name="userGroup" placeholder="User Group" onChange={e => this.updateInputs(e)} onBlur={() => updateRow(this.state)} />
+        <button onClick={() => removeRow(id)}>Remove</button>
       </div>
     );
   }
