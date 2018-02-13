@@ -4,7 +4,7 @@ import { Header } from './Header';
 import { UserRowList } from './UserRowList';
 import { Footer } from './Footer';
 
-class App extends Component {
+export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -52,5 +52,3 @@ class App extends Component {
     );
   }
 }
-
-export default App;
