@@ -4,8 +4,8 @@ export default class UserRow extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userName: props.userName || '',
-      userGroup: props.userGroup || '',
+      userName: '',
+      userGroup: '',
       id: props.id
     };
   }

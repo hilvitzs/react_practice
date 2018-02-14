@@ -34,7 +34,7 @@ export default class App extends Component {
 
   updateRow(updatedRow) {
     let specificObject = this.state.cards.find(card => updatedRow.id === card.id)
-    let cardsIndex = this.state.cards.indexOf(updatedRow);
+    let cardsIndex = this.state.cards.indexOf(specificObject);
     let cardsState = this.state.cards;
     cardsState[cardsIndex] = updatedRow;
     this.setState({
